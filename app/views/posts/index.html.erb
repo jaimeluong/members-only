@@ -1,0 +1,12 @@
+<h1>Clubhouse posts</h1>
+
+<% @posts.each { |post| %>
+    <% if @user %>
+      Author: <%= post.user.email %>
+    <% else %>
+      Author: Anonymous
+    <% end %>
+    <p><strong><%= post.title %></strong></p>
+    <p><%= post.content %></p>
+    <hr class="solid" style="border-top: 3px solid #bbb;">
+<% } %>
