@@ -1,5 +1,7 @@
 <h1>Clubhouse posts</h1>
 
+<hr class="solid" style="border-top: 3px solid #bbb;">
+
 <% @posts.each { |post| %>
     <% if @user %>
       Author: <%= post.user.email %>
@@ -8,5 +10,11 @@
     <% end %>
     <p><strong><%= post.title %></strong></p>
     <p><%= post.content %></p>
-    <hr class="solid" style="border-top: 3px solid #bbb;">
+    <hr class="solid" style="border-top: 3px dotted #bbb;">
 <% } %>
+
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to "Sign in", "/users/sign_in" %>
+<% end %>
